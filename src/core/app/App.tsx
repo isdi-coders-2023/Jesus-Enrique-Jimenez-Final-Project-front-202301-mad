@@ -2,7 +2,7 @@ export type MenuOption = {
   label: string;
   path: string;
 };
-// TEMPORAL:
+
 // const menuOptions: MenuOption[] = [
 //   { label: 'Register', path: '/users/register' },
 //   { label: 'Login', path: '/users/login' },
@@ -10,7 +10,11 @@ export type MenuOption = {
 // ];
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <p>Loading..</p>
+    </div>
+  );
 }
 
 export default App;
