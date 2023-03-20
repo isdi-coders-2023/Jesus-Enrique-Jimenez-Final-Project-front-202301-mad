@@ -19,7 +19,6 @@ export const userSlice = createSlice({
       state.users = [...state.users, action.payload];
     },
     login(state, action: PayloadAction<User>) {
-      debugger;
       state.userLogged = action.payload;
     },
   },
