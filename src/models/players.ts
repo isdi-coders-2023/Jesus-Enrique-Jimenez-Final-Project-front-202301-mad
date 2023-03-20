@@ -1,12 +1,14 @@
-export type UserStructure = {
+import { User } from './users';
+
+export type Player = {
   id: string;
   email: string;
   userName: string;
   password?: string;
-  players: UserStructure[];
+  creator: User;
   token?: string;
 };
 
 export type ServerResp = {
-  results: UserStructure[];
+  results: Player[];
 };

@@ -1,28 +1,25 @@
 import { SyntheticEvent, useMemo } from 'react';
 import { useUsers } from '../../hooks/use.users';
-import { UserStructure } from '../../models/users';
-import { UsersRepo } from '../../services/repository/users.api.repo';
+import { User } from '../../models/users';
+import { UsersRepo } from '../../services/users.repo';
 
 export default function Login() {
   const repo = useMemo(() => new UsersRepo(), []);
 
-  const { loginUser } = useUsers(repo);
+  const { userLogin } = useUsers(repo);
 
   const handleSubmit = (ev: SyntheticEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
-    const formLoginUser = ev.currentTarget;
-
-    const logUser: Partial<UserStructure> = {
-      userName: (formLoginUser[0] as HTMLFormElement).value,
-      password: (formLoginUser[1] as HTMLFormElement).value,
+    const formData = ev.currentTarget;
+    const userLog: Partial<User> = {
+      userName: (formData.elements[0] as HTMLFormElement).value,
+      password: (formData.elements[1] as HTMLFormElement).value,
     };
 
-    console.log(logUser);
-
-    loginUser(logUser);
-
-    formLoginUser.reset();
+    userLogin(userLog);
+    console.log(userLog);
+    formData.reset();
   };
 
   return (
