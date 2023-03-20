@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { store } from '../../store/store';
-import Register from '../register/register';
 import Access from './access';
 
 jest.mock('../register/register');
