@@ -2,8 +2,6 @@ import { useState } from 'react';
 import Login from '../login/login';
 import Register from '../register/register';
 
-import './access.css';
-
 export function Access() {
   const [toChange, setIsChanged] = useState<boolean | null>(null);
 
