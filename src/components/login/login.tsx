@@ -11,14 +11,15 @@ export default function Login() {
   const handleSubmit = (ev: SyntheticEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
-    const formUser = ev.currentTarget;
-
-    const loginForm: Partial<User> = {
-      userName: (formUser[0] as HTMLFormElement).value,
-      password: (formUser[1] as HTMLFormElement).value,
+    const formData = ev.currentTarget;
+    const userLog: Partial<User> = {
+      userName: (formData.elements[0] as HTMLFormElement).value,
+      password: (formData.elements[1] as HTMLFormElement).value,
     };
 
-    userLogin(loginForm);
+    userLogin(userLog);
+    console.log(userLog);
+    formData.reset();
   };
 
   return (
