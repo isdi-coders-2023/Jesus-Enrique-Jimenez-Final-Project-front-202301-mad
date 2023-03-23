@@ -1,29 +1,30 @@
 import { SyntheticEvent, useMemo } from 'react';
 import { useUsers } from '../../hooks/use.users';
 import { User } from '../../models/users';
-import { UsersRepo } from '../../services/users.repo';
+import { UsersApiRepo } from '../../services/users.api.repo';
+import styles from './register.module.scss';
 
 export default function Register() {
-  const repo = useMemo(() => new UsersRepo(), []);
+  const UsersRepo = useMemo(() => new UsersApiRepo(), []);
 
-  const { userRegister } = useUsers(repo);
+  const { userRegister } = useUsers(UsersRepo);
 
   const handleSubmit = (ev: SyntheticEvent<HTMLFormElement>) => {
     ev.preventDefault();
-    const formUser = ev.currentTarget;
+    const formLoginUser = ev.currentTarget;
 
     const registerForm: Partial<User> = {
-      email: (formUser.elements[0] as HTMLFormElement).value,
-      userName: (formUser.elements[1] as HTMLFormElement).value,
-      password: (formUser.elements[2] as HTMLFormElement).value,
+      email: (formLoginUser.elements[0] as HTMLFormElement).value,
+      userName: (formLoginUser.elements[1] as HTMLFormElement).value,
+      password: (formLoginUser.elements[2] as HTMLFormElement).value,
     };
 
     userRegister(registerForm);
   };
   return (
-    <section className="container-register">
-      <div className="form">
-        <form className="register" onSubmit={handleSubmit}>
+    <section className={styles.register}>
+      <div>
+        <form className={styles.input} onSubmit={handleSubmit}>
           <label>
             Email
             <input type="email" name="email" required />
@@ -38,8 +39,7 @@ export default function Register() {
             Password
             <input type="password" name="password" required />
           </label>
-
-          <button className="button" type="submit">
+          <button className={styles.button} type="submit">
             Register
           </button>
         </form>
