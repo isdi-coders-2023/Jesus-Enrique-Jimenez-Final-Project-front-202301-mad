@@ -5,7 +5,7 @@ export default function AboutPage(): JSX.Element {
         <h2>About us</h2>
       </div>
 
-      <div>
+      <div className={'about'}>
         <h3 className="about__title">NUESTRO PALMARES</h3>
         <p className="about__titletext">
           * TROFEO FIFA AL MEJOR CLUB DEL SIGLO XX * 14 COPAS DE EUROPA * 5
