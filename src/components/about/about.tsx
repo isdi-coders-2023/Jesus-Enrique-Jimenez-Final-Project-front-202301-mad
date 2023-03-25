@@ -1,6 +1,8 @@
+import styles from './about.module.scss';
+
 export default function AboutPage(): JSX.Element {
   return (
-    <section className="container__about">
+    <section className={styles.about}>
       <div className="main__title">
         <h2>About us</h2>
       </div>
