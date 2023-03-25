@@ -1,0 +1,28 @@
+.footer {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(232, 232, 238);
+  padding: 1rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  .footerCopyright {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 0.8rem;
+    align-items: center;
+    justify-content: center;
+    color: black;
+  }
+
+  .footerFollowUs {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+    img {
+      width: 30px;
+    }
+  }
+}
