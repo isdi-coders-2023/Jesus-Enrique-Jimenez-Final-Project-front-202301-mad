@@ -1,20 +1,35 @@
-import { Link } from 'react-router-dom';
-import { MenuOption } from '../app/app';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { MenuOption, menuOptions } from '../app/app';
+import styles from './menu.module.scss';
 
 type MenuProps = {
-  options: MenuOption[];
+  MenuOptions: MenuOption[];
 };
 
-export function Menu({ options }: MenuProps) {
+export function Menu({ MenuOptions }: MenuProps) {
   return (
-    <nav>
-      <ul>
-        {options.map((item) => (
-          <li key={item.label}>
-            <Link to={item.path}></Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <>
+      <nav>
+        <div className={styles.menu}>
+          <a href="#" className={styles.burger}>
+            <img
+              className={styles.burgerImg}
+              src="./menu-hamburguesa.png"
+              alt="burger menu"
+            ></img>
+          </a>
+        </div>
+        <div className={styles.yo}>
+          <ul className="menu">
+            {menuOptions.map((option) => (
+              <li key={option.label}>
+                <a href={option.path}>{option.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+      ;
+    </>
   );
 }
