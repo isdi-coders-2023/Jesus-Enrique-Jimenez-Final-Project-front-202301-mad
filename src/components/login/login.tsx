@@ -10,7 +10,8 @@ export default function Login() {
 
   const UserRepo = useMemo(() => new UsersApiRepo(), []);
 
-  const { userLogin } = useUsers(UserRepo);
+  const { userLogin, users } = useUsers(UserRepo);
+  const userLogged = users.userLogged;
 
   const handleSubmit = (ev: SyntheticEvent<HTMLFormElement>) => {
     ev.preventDefault();
@@ -25,7 +26,11 @@ export default function Login() {
     userLogin(logUser);
 
     formLoginUser.reset();
-    navigate('/home');
+    if (!userLogged) {
+      console.log(userLogged);
+    } else {
+      navigate('/home');
+    }
   };
   return (
     <div className={styles.login}>
