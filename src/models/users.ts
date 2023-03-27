@@ -1,6 +1,7 @@
 import { Player } from './players';
 
 export type User = {
+  results: any;
   id: string;
   email: string;
   userName: string;
@@ -9,6 +10,6 @@ export type User = {
   token?: string;
 };
 
-export type ServerResp = {
+export type ServerUser = {
   results: User[];
 };
