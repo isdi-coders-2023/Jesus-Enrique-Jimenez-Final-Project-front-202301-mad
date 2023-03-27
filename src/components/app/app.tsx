@@ -1,25 +1,24 @@
 import { AppRouter } from '../app-router/app.router';
-import { Header } from '../header/header';
-import { Menu } from '../menu/menu';
+import React from 'react';
+import Header from '../header/header';
+import Footer from '../footer/footer';
 
 export type MenuOption = {
   label: string;
   path: string;
 };
-
 export const menuOptions: MenuOption[] = [
-  { label: 'access', path: '/access' },
-  { label: 'Register', path: '/users/register' },
-  { label: 'Login', path: '/users/login' },
+  { label: 'home', path: '/home' },
+  { label: 'About', path: '/About' },
+  { label: 'MyPlayers', path: '/MyPlayers' },
 ];
 
-export function App() {
+function App() {
   return (
     <>
-      <Header>
-        <Menu options={menuOptions}></Menu>
-      </Header>
+      <Header></Header>
       <AppRouter menuOptions={menuOptions}></AppRouter>
+      <Footer></Footer>
     </>
   );
 }

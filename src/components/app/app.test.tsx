@@ -1,20 +1,21 @@
 import { render } from '@testing-library/react';
+import Header from '../header/header';
+import Footer from '../footer/footer';
 import { AppRouter } from '../app-router/app.router';
-import { Header } from '../header/header';
-import { App } from './app';
+import App from './app';
 
 jest.mock('../header/header');
 jest.mock('../app-router/app.router');
+jest.mock('../footer/footer');
 
-describe('Given the App component', () => {
-  describe('when it is rendered', () => {
-    test('then it should call Header', () => {
-      render(<App></App>);
+describe('Given App component', () => {
+  describe('When it is render', () => {
+    test('Then it should call UsersList component', () => {
+      render(<App />);
+
       expect(Header).toHaveBeenCalled();
-    });
-    test('then it should call AppRouter', () => {
-      render(<App></App>);
       expect(AppRouter).toHaveBeenCalled();
+      expect(Footer).toHaveBeenCalled();
     });
   });
 });
