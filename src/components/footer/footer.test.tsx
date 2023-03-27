@@ -1,13 +1,12 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import Footer from './footer';
 
-describe('Given Footer component', () => {
-  describe('When it is render', () => {
-    test('Then it should have the footer in the screen', () => {
+describe('Given the Footer component', () => {
+  describe('When the component is rendered', () => {
+    test('Then the logo image should be in the document', () => {
       render(<Footer></Footer>);
-      const element = screen.getByText('Follow us on');
-      expect(element).toBeInTheDocument();
+      const elements = screen.getAllByRole('img');
+      expect(elements[0]).toBeInTheDocument();
     });
   });
 });
