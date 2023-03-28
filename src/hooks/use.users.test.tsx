@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/no-unnecessary-act */
 import { User } from '../models/users';
-import { UsersRepo } from '../services/users.repo';
+import { UsersApiRepo } from '../services/users.api.repo';
 import { useUsers } from './use.users';
 import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -9,7 +9,7 @@ import { store } from '../store/store';
 
 describe('Given a users custom hook', () => {
   let payloadMock: User;
-  let repoMock: UsersRepo;
+  let repoMock: UsersApiRepo;
   const mockPass = 'Test';
 
   beforeEach(async () => {
@@ -20,7 +20,7 @@ describe('Given a users custom hook', () => {
 
     repoMock = {
       create: jest.fn(),
-    } as unknown as UsersRepo;
+    } as unknown as UsersApiRepo;
 
     const TestComponent = function () {
       const { userLogin, userRegister } = useUsers(repoMock);
