@@ -13,6 +13,7 @@ export default function MyPlayers() {
 
   const userPlayers = users.userLogged.players;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function handlerPrevButton(_arg0: number) {
     throw new Error('Function not implemented.');
   }
