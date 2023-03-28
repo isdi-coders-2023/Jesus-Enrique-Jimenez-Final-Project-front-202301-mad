@@ -6,13 +6,13 @@ import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
 
-export const newImage = async (file?: File) => {
-  if (!file) {
-    return 'https://firebasestorage.googleapis.com/v0/b/add-image-9a3cd.appspot.com/o/Avatar.png?alt=media&token=912b2430-9291-4ca1-a75a-ac8b2a746d5a';
+export const newImage = async (fileName: string, filePicture: File) => {
+  if (!filePicture) {
+    return 'https://firebasestorage.googleapis.com/v0/b/real-madrid-fantasy-ce626.appspot.com/o/521-bust-in-silhouette-coloring-page.png?alt=media&token=5d856bb3-e49d-47ab-9b3f-d48cbdfe0cbf';
   }
-  const storageRef = ref(storage, file.name);
+  const storageRef = ref(storage, fileName);
 
-  await uploadBytes(storageRef, file);
+  await uploadBytes(storageRef, filePicture);
 
   const imgUrl = await getDownloadURL(storageRef);
 
