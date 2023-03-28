@@ -9,7 +9,6 @@ export default function ErrorPage() {
         <p className={style.errorPageTitleMessage}>Page not found</p>
       </div>
       <img src="./error.png" alt="player"></img>
-
       <Link to="./home"></Link>
     </section>
   );
