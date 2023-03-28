@@ -1,29 +1,42 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { User } from '../models/users';
 
-export type State = {
+export type UserState = {
   userLogged: User;
-  users: User[];
+  allUsers: User[];
+  user: User;
 };
 
-const initialState: State = {
+const initialState: UserState = {
   userLogged: {} as User,
-  users: [],
+  allUsers: [],
+  user: {} as User,
 };
 
-export const userSlice = createSlice({
+const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
     register(state, action: PayloadAction<User>) {
-      state.users = [...state.users, action.payload];
+      state.allUsers = [...state.allUsers, action.payload];
     },
     login(state, action: PayloadAction<User>) {
       state.userLogged = action.payload;
     },
+    readId(state, action: PayloadAction<User>) {
+      state.userLogged = action.payload;
+    },
+    update(state, action: PayloadAction<User>) {
+      state.userLogged = { ...state.userLogged, ...action.payload };
+
+      const actualInfo = [...state.allUsers];
+      state.allUsers = actualInfo.map((item) =>
+        item.id === action.payload.id ? { ...item, ...action.payload } : item
+      );
+    },
   },
 });
 
-export const { register, login } = userSlice.actions;
+export const { register, login, readId, update } = userSlice.actions;
 
 export const userReducer = userSlice.reducer;
