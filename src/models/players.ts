@@ -1,14 +1,14 @@
-import { User } from './users';
-
 export type Player = {
   id: string;
-  email: string;
-  userName: string;
-  password?: string;
-  creator: User;
-  token?: string;
+  name: string;
+  nationality: string;
+  age: number;
+  position: string;
+  preferredFoot: string;
+  picture: string;
+  creator: string;
 };
 
-export type ServerResp = {
+export type ServerPlayer = {
   results: Player[];
 };
