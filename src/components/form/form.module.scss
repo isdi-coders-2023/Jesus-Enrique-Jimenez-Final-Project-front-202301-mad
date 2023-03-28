@@ -1,0 +1,47 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  input {
+    padding: 1rem;
+    border-radius: 3rem;
+    border: 0.2rem solid #ccc;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+  .volver {
+    padding: 1rem 1.5rem;
+    background-color: blue;
+    border: none;
+    border-radius: 3rem;
+    gap: 0.5rem;
+    color: #fff;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .guardar {
+    padding: 1rem;
+    border: 10rem;
+    border-radius: 15rem;
+    gap: 0.5rem;
+    color: #fff;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken(#007bff, 10%);
+    }
+  }
+}
