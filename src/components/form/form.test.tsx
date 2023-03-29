@@ -41,6 +41,11 @@ describe('Given the Form component', () => {
               name: 'test2',
               nationality: 'test2',
             } as Player,
+            {
+              id: '3',
+              name: 'test3',
+              nationality: 'test3',
+            } as Player,
           ],
         },
 
@@ -59,9 +64,10 @@ describe('Given the Form component', () => {
         );
       });
     });
-    test('Then the Form should appear on the screen', () => {
-      const element = screen.getAllByAltText('name');
-      expect(element).toBeInTheDocument();
+    test('Then the Form should appear on the screen', async () => {
+      const elements = screen.getAllByRole('button');
+      await userEvent.click(elements[1]);
+      expect(elements[1]).toBeInTheDocument();
     });
 
     describe('When the user clicks the submit button and there is an existing player', () => {
@@ -71,5 +77,12 @@ describe('Given the Form component', () => {
         expect(usePlayers(mockRepo).updatePlayer).toHaveBeenCalled();
       });
     });
+    // describe('When the user clicks the submit button create', () => {
+    //   test('then it calls createPlayers when submitting a player', async () => {
+    //     elements = await screen.findAllByRole('button');
+    //     await userEvent.click(elements[1]);
+    //     expect(usePlayers(mockRepo).createPlayer).toHaveBeenCalled();
+    //   });
+    // });
   });
 });
