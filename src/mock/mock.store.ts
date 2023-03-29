@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { userInfo } from 'os';
 import { User } from '../models/users';
 import { playerReducer } from '../reducer/players.slice';
 import { userReducer } from '../reducer/users.slice';
