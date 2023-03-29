@@ -26,9 +26,9 @@ export default function Login() {
     userLogin(logUser);
 
     formLoginUser.reset();
-    if (!userLogged) {
-      console.log(userLogged);
-    } else {
+    console.log(userLogged);
+    if (userLogged) {
+      console.log('ademtro');
       navigate('/home');
     }
   };
