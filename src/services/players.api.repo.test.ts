@@ -73,22 +73,10 @@ describe('Given the player repo', () => {
       });
     });
     test('Then it should return te updated value', async () => {
-      const error = new Error('error');
-      global.fetch = jest.fn().mockResolvedValue({
-        ok: false,
-        status: '404',
-        statusText: 'error',
-      });
-      await mockPlayersRepo.updatePlayer(updatedPlayer, 'token');
-      expect(error).toBeInstanceOf(Error);
+      global.fetch = jest.fn().mockResolvedValue('Error Test');
+      const result = mockPlayersRepo.updatePlayer(updatedPlayer, 'token');
+      await expect(result).rejects.toThrow();
     });
-    // test('Then it should return an error', async () => {
-    //   global.fetch = jest.fn().mockRejectedValue({
-    //     ok: false,
-    //   });
-    //   await mockPlayersRepo.updatePlayer(updatedPlayer, 'token');
-    //   expect(fetch).toHaveBeenCalled();
-    // });
   });
 });
 describe('When it calls the method delete', () => {
