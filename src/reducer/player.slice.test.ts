@@ -87,7 +87,7 @@ describe('Given the playerSlice with payload and initial state mocked', () => {
         },
       };
       const result = playerReducer(mockInitialState, mockUpdateAction);
-      expect(result).toBe({
+      expect(result).toStrictEqual({
         allPlayers: [
           {
             name: 'test',
