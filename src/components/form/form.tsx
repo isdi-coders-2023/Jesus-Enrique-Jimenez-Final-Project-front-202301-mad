@@ -21,7 +21,7 @@ export default function Form() {
     (item) => item.id === id
   );
   const type = playerItem === undefined ? 'add' : 'update';
-
+  let imageLink = '';
   const handleSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
     const formData = event.currentTarget as HTMLFormElement;
@@ -32,10 +32,14 @@ export default function Form() {
     //     'https://firebasestorage.googleapis.com/v0/b/add-image-9a3cd.appspot.com/o/Avatar.png?alt=media&token=912b2430-9291-4ca1-a75a-ac8b2a746d5a';
     // }
     const urlPicture = (formData.elements[1] as HTMLFormElement).files[0];
-    const imageLink = await newImage(
-      (formData.elements[0] as HTMLFormElement).value,
-      urlPicture
-    );
+    if (urlPicture) {
+      imageLink = await newImage(
+        (formData.elements[0] as HTMLFormElement).value,
+        urlPicture
+      );
+    } else {
+      imageLink = playerItem?.picture!;
+    }
 
     const newPlayer: Partial<Player> | undefined = {
       name: (formData.elements[0] as HTMLFormElement).value,
