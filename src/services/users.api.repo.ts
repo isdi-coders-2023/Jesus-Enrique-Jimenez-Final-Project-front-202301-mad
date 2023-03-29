@@ -25,7 +25,7 @@ export class UsersApiRepo {
       Swal.fire({
         icon: 'success',
         timer: 2000,
-        confirmButtonColor: 'rgb(69, 69, 69',
+        confirmButtonColor: 'blue',
         title: ` User ${resp.statusText}`,
       });
 
