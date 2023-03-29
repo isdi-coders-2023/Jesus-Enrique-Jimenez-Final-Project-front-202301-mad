@@ -108,58 +108,9 @@ async function testMain() {
   );
 }
 
-// describe('Given our players custom hook', () => {
-//   let payloadMock: Player;
-//   let repoMock: PlayersRepo;
-
 describe('Given our players custom hook is rendered', () => {
   beforeEach(async () => {
     testMain();
-    // payloadMock = {
-    //   player: '2',
-    //   age: 3,
-    //   position: 'forward',
-    // } as unknown as Player;
-
-    // repoMock = {
-    //   createPlayer: jest.fn(),
-    //   deletePlayer: jest.fn(),
-    //   updatePlayer: jest.fn(),
-    //   loadPlayers: jest.fn(),
-    //   loadOnePlayer: jest.fn(),
-    // } as unknown as PlayersRepo;
-
-    // const TestComponent = function () {
-    //   const {
-    //     loadPlayers,
-    //     loadOnePlayer,
-    //     createPlayer,
-    //     updatePlayer,
-    //     deleteOnePlayer,
-    //   } = usePlayers(repoMock);
-
-    //   return (
-    //     <>
-    //       <button onClick={() => loadPlayers()}></button>
-    //       <button onClick={() => loadOnePlayer('1')}></button>
-    //       <button onClick={() => createPlayer(payloadMock)}>create</button>
-    //       <button onClick={() => updatePlayer(payloadMock)}>update</button>
-    //       <button onClick={() => deleteOnePlayer('7')}>Delete</button>
-
-    //       <button onClick={() => createPlayer(payloadMock)}></button>
-    //     </>
-    //   );
-    // };
-
-    // await act(async () =>
-    //   render(
-    //     <Provider store={mockStore}>
-    //       <Router>
-    //         <TestComponent></TestComponent>
-    //       </Router>
-    //     </Provider>
-    //   )
-    // );
   });
 
   describe('When we render it', () => {
@@ -315,4 +266,3 @@ describe('Given our players custom hook be rendered', () => {
     });
   });
 });
-// });
