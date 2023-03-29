@@ -1,7 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { MenuOption } from '../app/app';
-// import Register from '../register/register';
 
 const Access = lazy(() => import('../access/access'));
 const Home = lazy(() => import('../home/home'));
