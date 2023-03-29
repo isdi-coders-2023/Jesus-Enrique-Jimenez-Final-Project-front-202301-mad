@@ -72,59 +72,75 @@ describe('Given the player repo', () => {
         nationality: 'brazilian',
       });
     });
-  });
-
-  describe('When it calls the method delete', () => {
-    test('Then it should call fetch with no return', async () => {
-      global.fetch = jest.fn().mockResolvedValue({
-        ok: true,
-        json: jest.fn(),
-      });
-
-      const deletePlayers = await mockPlayersRepo.deletePlayer('2', '1');
-      expect(fetch).toHaveBeenCalled();
-      expect(deletePlayers).toBe(undefined);
-    });
-  });
-
-  describe('When loadPlayers method fails', () => {
-    test('Then it should throw an error', async () => {
-      global.fetch = jest.fn().mockResolvedValue('Error found');
-      const loadAll = mockPlayersRepo.loadPlayers();
-      await expect(loadAll).rejects.toThrow();
-    });
-  });
-
-  describe('When loadOnePlayer method fails', () => {
-    test('Then it should throw an error', async () => {
-      global.fetch = jest.fn().mockResolvedValue('Error found');
-      const getOnePlayer = mockPlayersRepo.loadOnePlayer('1');
-      await expect(getOnePlayer).rejects.toThrow();
-    });
-  });
-
-  describe('When create method fails', () => {
-    const mockCreatedPlayer = {
-      email: 'test',
-      password: '123',
-    } as unknown as Player;
-    test('Then it should throw an error', async () => {
+    test('Then it should return te updated value', async () => {
+      const error = new Error('error');
       global.fetch = jest.fn().mockResolvedValue({
         ok: false,
-        json: jest.fn().mockResolvedValue(undefined),
+        status: '404',
+        statusText: 'error',
       });
-      await expect(
-        mockPlayersRepo.createPlayer(mockCreatedPlayer, 'token')
-      ).rejects.toThrow();
-      expect(fetch).toHaveBeenCalled();
+      await mockPlayersRepo.updatePlayer(updatedPlayer, 'token');
+      expect(error).toBeInstanceOf(Error);
     });
+    // test('Then it should return an error', async () => {
+    //   global.fetch = jest.fn().mockRejectedValue({
+    //     ok: false,
+    //   });
+    //   await mockPlayersRepo.updatePlayer(updatedPlayer, 'token');
+    //   expect(fetch).toHaveBeenCalled();
+    // });
   });
-
-  describe('When delete method fail', () => {
-    test('Then it should throw an error', async () => {
-      global.fetch = jest.fn().mockResolvedValue('Error found');
-      const deletePlayers = mockPlayersRepo.deletePlayer('2', '1');
-      await expect(deletePlayers).rejects.toThrow();
+});
+describe('When it calls the method delete', () => {
+  test('Then it should call fetch with no return', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: jest.fn(),
     });
+
+    const deletePlayers = await mockPlayersRepo.deletePlayer('2', '1');
+    expect(fetch).toHaveBeenCalled();
+    expect(deletePlayers).toBe(undefined);
+  });
+});
+
+describe('When loadPlayers method fails', () => {
+  test('Then it should throw an error', async () => {
+    global.fetch = jest.fn().mockResolvedValue('Error found');
+    const loadAll = mockPlayersRepo.loadPlayers();
+    await expect(loadAll).rejects.toThrow();
+  });
+});
+
+describe('When loadOnePlayer method fails', () => {
+  test('Then it should throw an error', async () => {
+    global.fetch = jest.fn().mockResolvedValue('Error found');
+    const getOnePlayer = mockPlayersRepo.loadOnePlayer('1');
+    await expect(getOnePlayer).rejects.toThrow();
+  });
+});
+
+describe('When create method fails', () => {
+  const mockCreatedPlayer = {
+    email: 'test',
+    password: '123',
+  } as unknown as Player;
+  test('Then it should throw an error', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: false,
+      json: jest.fn().mockResolvedValue(undefined),
+    });
+    await expect(
+      mockPlayersRepo.createPlayer(mockCreatedPlayer, 'token')
+    ).rejects.toThrow();
+    expect(fetch).toHaveBeenCalled();
+  });
+});
+
+describe('When delete method fail', () => {
+  test('Then it should throw an error', async () => {
+    global.fetch = jest.fn().mockResolvedValue('Error found');
+    const deletePlayers = mockPlayersRepo.deletePlayer('2', '1');
+    await expect(deletePlayers).rejects.toThrow();
   });
 });

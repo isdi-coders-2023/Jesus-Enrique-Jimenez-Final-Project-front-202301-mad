@@ -37,7 +37,7 @@ export default function Details() {
             <div>
               <img
                 src={playerDetails?.picture}
-                alt="Details Card"
+                alt="Details"
                 className={styles.details__image}
               />
             </div>
