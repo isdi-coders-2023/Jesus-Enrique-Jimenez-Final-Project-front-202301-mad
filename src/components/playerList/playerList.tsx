@@ -4,7 +4,6 @@ import { usePlayers } from '../../hooks/use.players';
 import { Player } from '../../models/players';
 import { PlayersRepo } from '../../services/players.api.repo';
 import { Card } from '../card/card';
-
 import styles from './playerList.module.scss';
 
 export function PlayersList() {
