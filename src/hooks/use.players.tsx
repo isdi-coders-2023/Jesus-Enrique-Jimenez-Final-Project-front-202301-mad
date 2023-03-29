@@ -66,7 +66,7 @@ export function usePlayers(repo: PlayersRepo) {
 
       const playerInfo = await repo.updatePlayer(infoPlayer, userToken);
 
-      dispatch(update(playerInfo.results[0]));
+      playersDispatch(update(playerInfo.results[0]));
     } catch (error) {
       console.log((error as Error).message);
     }
@@ -83,7 +83,7 @@ export function usePlayers(repo: PlayersRepo) {
       console.log(playerId);
       playersDispatch(deletePlayer(playerId));
     } catch (error) {
-      console.log((error as Error).message);
+      console.error((error as Error).message);
     }
   };
 
@@ -95,7 +95,4 @@ export function usePlayers(repo: PlayersRepo) {
     updatePlayer,
     deleteOnePlayer,
   };
-}
-function dispatch(arg0: any) {
-  throw new Error('Function not implemented.');
 }
