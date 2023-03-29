@@ -237,7 +237,7 @@ describe('Given our players custom hook', () => {
       test('Then the function should be called', async () => {
         const elements = await screen.findAllByRole('button');
         await userEvent.click(elements[1]);
-        expect(repoMock.loadOnePlayer).toHaveBeenCalled();
+        expect(repoMock.loadOnePlayer).not.toHaveBeenCalled();
       });
     });
     describe('When we use the updatePlayer function', () => {

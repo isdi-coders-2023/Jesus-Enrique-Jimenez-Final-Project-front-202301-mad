@@ -2,8 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { User } from '../models/users';
 import { UsersApiRepo } from '../services/users.api.repo';
 import { AppDispatch, RootState } from '../store/store';
-import { register, login, update } from '../reducer/users.slice';
-import { Player } from '../models/players';
+import { register, login } from '../reducer/users.slice';
 
 export function useUsers(repo: UsersApiRepo) {
   const users = useSelector((state: RootState) => state.users);
@@ -28,19 +27,6 @@ export function useUsers(repo: UsersApiRepo) {
       console.log((error as Error).message);
     }
   };
-  // const userCart = async (idPlayer: Player['id'], action: string) => {
-  //   try {
-  //     const userToken = users.userLogged.token;
-
-  //     if (!userToken) throw new Error('Not authorized');
-
-  //     const userInfo = await repo.update(idPlayer, userToken, action);
-
-  //     dispatch(update(userInfo.results[0]));
-  //   } catch (error) {
-  //     console.log((error as Error).message);
-  //   }
-  // };
 
   return {
     users,
