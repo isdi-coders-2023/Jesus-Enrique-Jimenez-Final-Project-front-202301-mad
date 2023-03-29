@@ -76,7 +76,7 @@ describe('Given the playerSlice with payload and initial state mocked', () => {
       const mockUpdateAction: PayloadAction<Player> = {
         type: 'player/update',
         payload: {
-          id: 'test',
+          id: '2',
           name: 'test',
           picture: 'test',
           preferredFoot: 'test',
@@ -90,13 +90,14 @@ describe('Given the playerSlice with payload and initial state mocked', () => {
       expect(result).toStrictEqual({
         allPlayers: [
           {
+            id: '2',
             name: 'test',
+            picture: 'test',
             preferredFoot: 'test',
             age: 2,
             position: 'test',
             nationality: 'test',
             creator: 'test',
-            picture: 'test',
           },
         ],
         player: {},
