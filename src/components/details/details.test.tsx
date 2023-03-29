@@ -15,23 +15,20 @@ jest.mock('../card/card');
 describe('Given details component', () => {
   beforeEach(async () => {
     (usePlayers as jest.Mock).mockReturnValue({
-      Player: [
-        {
-          id: '1',
-          name: 'user1',
-          creator: { name: 'Test' },
-        },
-        {
-          id: '2',
-          name: 'player2',
-          position: 'Test',
-          age: 0,
-          picture: 'Test',
-          preferredFoot: 'test',
-          nationality: 'Test',
-          creator: { name: 'Test' },
-        },
-      ],
+      playersState: {
+        allPlayers: [
+          {
+            id: '1',
+            name: 'test1',
+            nationality: 'test1',
+          } as Player,
+          {
+            id: '2',
+            name: 'test2',
+            nationality: 'test2',
+          } as Player,
+        ],
+      },
       loadOnePlayer: jest.fn(),
       deletePlayer: jest.fn(),
     });
@@ -53,7 +50,7 @@ describe('Given details component', () => {
         const buttons = await screen.findAllByRole('button');
         expect(buttons[0]).toBeInTheDocument();
         await userEvent.click(buttons[1]);
-        expect(jest.fn()).toHaveBeenCalled();
+        expect(usePlayers).toHaveBeenCalled();
       });
     });
   });
