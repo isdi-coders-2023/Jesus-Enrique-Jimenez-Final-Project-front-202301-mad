@@ -101,10 +101,12 @@ export default function Form() {
           required
           placeholder="PreferredFoot"
         />
-        <div className={styles.guardar}>
-          <button type="submit">Guardar</button>{' '}
+        <div className={styles.buttons}>
+          <div>
+            <button className={styles.guardar}>Guardar</button>{' '}
+          </div>
         </div>
-        <div className={styles.button}>
+        <div className={styles.buttons}>
           <Link to={'/home'}>
             <button className={styles.volver}>Volver al listado</button>
           </Link>
