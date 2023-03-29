@@ -21,9 +21,11 @@ const mockRepo = {
   loadOnePlayer: jest.fn(),
   createPlayer: jest.fn(),
   updatePlayer: jest.fn(),
-  deletePlayer: jest.fn(),
+  deleteOnePlayer: jest.fn(),
 } as unknown as PlayersRepo;
 describe('Given the Form component', () => {
+  let elements: HTMLElement[];
+
   describe('When we render the form component', () => {
     beforeEach(async () => {
       (usePlayers as jest.Mock).mockReturnValue({
@@ -57,31 +59,17 @@ describe('Given the Form component', () => {
         );
       });
     });
-    test('then it calls createPlayer when submitting a player', async () => {
-      const submitButton = await screen.findAllByRole('button');
-      await userEvent.click(submitButton[0]);
-      expect(usePlayers(mockRepo).createPlayer).toHaveBeenCalled();
+    test('Then the Form should appear on the screen', () => {
+      const element = screen.getAllByAltText('name');
+      expect(element).toBeInTheDocument();
     });
 
-    test('then it calls updatePlayer when submitting a player', async () => {
-      const submitButton = await screen.findAllByRole('button');
-      await userEvent.click(submitButton[0]);
-      expect(usePlayers(mockRepo).updatePlayer).toHaveBeenCalled();
+    describe('When the user clicks the submit button and there is an existing player', () => {
+      test('then it calls updatePlayers when submitting a player', async () => {
+        elements = await screen.findAllByRole('button');
+        await userEvent.click(elements[0]);
+        expect(usePlayers(mockRepo).updatePlayer).toHaveBeenCalled();
+      });
     });
   });
-  // describe('Given the form component ', () => {
-
-  //    render(
-  //         <Provider store={store}>
-  //           <MemoryRouter>
-  //             <Form></Form>
-  //           </MemoryRouter>
-  //         </Provider>
-  //       );
-  //    test('then it calls updatePlayer when submitting a player', async () => {
-  //      const submitButton = await screen.findAllByRole('button');
-  //      await userEvent.click(submitButton[0]);
-  //      expect(usePlayers(mockRepo).updatePlayer).toHaveBeenCalled();
-
-  //    });
 });

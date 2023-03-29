@@ -26,11 +26,6 @@ export default function Form() {
     event.preventDefault();
     const formData = event.currentTarget as HTMLFormElement;
 
-    //   urlPicture = await newImage(fileName, filePicture);
-    // } else {
-    //   urlPicture =
-    //     'https://firebasestorage.googleapis.com/v0/b/add-image-9a3cd.appspot.com/o/Avatar.png?alt=media&token=912b2430-9291-4ca1-a75a-ac8b2a746d5a';
-    // }
     const urlPicture = (formData.elements[1] as HTMLFormElement).files[0];
     if (urlPicture) {
       imageLink = await newImage(
