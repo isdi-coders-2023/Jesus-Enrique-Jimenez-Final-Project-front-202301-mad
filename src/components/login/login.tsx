@@ -43,10 +43,11 @@ export default function Login() {
           Password
           <input type="password" name="password" required />
         </label>
-
-        <button className={styles.button} type="submit">
-          Login
-        </button>
+        <div className={styles.login}>
+          <button className={styles.button} type="submit">
+            Login
+          </button>
+        </div>
       </form>
     </div>
   );

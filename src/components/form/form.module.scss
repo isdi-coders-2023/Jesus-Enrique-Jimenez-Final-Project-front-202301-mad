@@ -4,44 +4,47 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  padding: 2rem;
+  gap: 2rem;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
   input {
-    padding: 1rem;
-    border-radius: 3rem;
-    border: 0.2rem solid #ccc;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    border: 0.2rem solid rgb(24, 24, 225);
     margin-bottom: 1rem;
     width: 100%;
   }
   .volver {
-    padding: 1rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     background-color: blue;
-    border: none;
     border-radius: 3rem;
-    gap: 0.5rem;
     color: #fff;
     flex-direction: column;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
 
   .guardar {
-    padding: 1rem;
-    border: 10rem;
-    border-radius: 15rem;
-    gap: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    background-color: blue;
+    border-radius: 3rem;
     color: #fff;
-    flex-direction: column;
+    flex-direction: row;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-
-    &:hover {
-      background-color: darken(#007bff, 10%);
-    }
+    transition: background-color 0.3s ease;
+  }
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
   }
 }

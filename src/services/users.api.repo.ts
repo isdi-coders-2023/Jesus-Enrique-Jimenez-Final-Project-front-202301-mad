@@ -1,4 +1,6 @@
 import { Player } from '../models/players';
+import Swal from 'sweetalert2';
+
 import { ServerUser, User } from '../models/users';
 
 export class UsersApiRepo {
@@ -19,8 +21,30 @@ export class UsersApiRepo {
       },
     });
 
-    if (!resp.ok)
-      throw new Error('Error http: ' + resp.status + resp.statusText);
+    if (resp.ok)
+      Swal.fire({
+        icon: 'success',
+        timer: 2000,
+        confirmButtonColor: 'blue',
+        title: ` User ${resp.statusText}`,
+      });
+
+    if (!resp.ok) {
+      Swal.fire({
+        icon: 'error',
+        timer: 2000,
+        title: `User ${resp.statusText}`,
+      });
+      throw new Error(`Error http: ${resp.status} ${resp.statusText}`);
+    }
+
+    // if (!resp.ok) {
+    //   Swal.fire({
+    //     icon: 'error',
+    //     text: 'Algo no has hecho bien',
+    //   });
+    //   throw new Error('Error http: ' + resp.status + resp.statusText);
+    // }
 
     const userData = (await resp.json()) as ServerUser;
 

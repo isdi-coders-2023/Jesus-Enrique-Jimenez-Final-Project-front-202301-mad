@@ -10,21 +10,21 @@ export default function Footer() {
       </div>
 
       <div className={style.footerFollowUs}>
-        <a href="https://es-es.facebook.com/">
+        <a href="https://www.facebook.com/RealMadrid/">
           <img
             className={style.footerFollowUsFacebook}
             src="./facebook.jfif"
             alt="facebook-logo"
           />
         </a>
-        <a href="https://www.instagram.com/jesusnauta9/">
+        <a href="https://www.instagram.com/realmadrid/">
           <img
             className={style.footerFollowUsInstagram}
             src="./instag.png"
             alt="instagram-logo"
           />
         </a>
-        <a href="https://twitter.com/">
+        <a href="https://twitter.com/realmadrid">
           <img
             className={style.footerFollowUsTwitter}
             src="./twitter.png"

@@ -39,9 +39,11 @@ export default function Register() {
             Password
             <input type="password" name="password" required />
           </label>
-          <button className={styles.button} type="submit">
-            Register
-          </button>
+          <div className={styles.register}>
+            <button className={styles.button} type="submit">
+              Register
+            </button>
+          </div>
         </form>
       </div>
     </section>
