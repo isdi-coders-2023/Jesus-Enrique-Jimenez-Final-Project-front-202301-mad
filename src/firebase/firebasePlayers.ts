@@ -2,7 +2,6 @@ import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from './firebase-config';
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
 
