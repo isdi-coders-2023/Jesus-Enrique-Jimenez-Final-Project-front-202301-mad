@@ -28,7 +28,6 @@ export default function Login() {
     formLoginUser.reset();
     console.log(userLogged);
     if (userLogged) {
-      console.log('ademtro');
       navigate('/home');
     }
   };

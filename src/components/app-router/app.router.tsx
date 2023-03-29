@@ -7,7 +7,6 @@ const Access = lazy(() => import('../access/access'));
 const Home = lazy(() => import('../home/home'));
 
 const About = lazy(() => import('../about/about'));
-const MyPlayers = lazy(() => import('../myPlayers/myPlayers'));
 const Details = lazy(() => import('../details/details'));
 const CreatePlayer = lazy(() => import('../create/create'));
 const EditPlayer = lazy(() => import('../edit-player/edit'));
@@ -25,10 +24,7 @@ export function AppRouter({ menuOptions }: AppRouterProps) {
         {/* <Route path={'/'} element={<Register></Register>}></Route> */}
         <Route path={menuOptions[0].path} element={<Home></Home>}></Route>
         <Route path={menuOptions[1].path} element={<About></About>}></Route>
-        <Route
-          path={menuOptions[2].path}
-          element={<MyPlayers></MyPlayers>}
-        ></Route>
+
         <Route path={'/create'} element={<CreatePlayer></CreatePlayer>}></Route>
         <Route path={'/edit/:id'} element={<EditPlayer></EditPlayer>}></Route>
         <Route path={'/details/:id'} element={<Details></Details>}></Route>
