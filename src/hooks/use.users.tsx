@@ -28,24 +28,23 @@ export function useUsers(repo: UsersApiRepo) {
       console.log((error as Error).message);
     }
   };
-  const userCart = async (idPlayer: Player['id'], action: string) => {
-    try {
-      const userToken = users.userLogged.token;
+  // const userCart = async (idPlayer: Player['id'], action: string) => {
+  //   try {
+  //     const userToken = users.userLogged.token;
 
-      if (!userToken) throw new Error('Not authorized');
+  //     if (!userToken) throw new Error('Not authorized');
 
-      const userInfo = await repo.update(idPlayer, userToken, action);
+  //     const userInfo = await repo.update(idPlayer, userToken, action);
 
-      dispatch(update(userInfo.results[0]));
-    } catch (error) {
-      console.log((error as Error).message);
-    }
-  };
+  //     dispatch(update(userInfo.results[0]));
+  //   } catch (error) {
+  //     console.log((error as Error).message);
+  //   }
+  // };
 
   return {
     users,
     userRegister,
     userLogin,
-    userCart,
   };
 }
