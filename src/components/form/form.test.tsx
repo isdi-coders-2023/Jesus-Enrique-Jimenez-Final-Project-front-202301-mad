@@ -77,12 +77,5 @@ describe('Given the Form component', () => {
         expect(usePlayers(mockRepo).updatePlayer).toHaveBeenCalled();
       });
     });
-    // describe('When the user clicks the submit button create', () => {
-    //   test('then it calls createPlayers when submitting a player', async () => {
-    //     elements = await screen.findAllByRole('button');
-    //     await userEvent.click(elements[1]);
-    //     expect(usePlayers(mockRepo).createPlayer).toHaveBeenCalled();
-    //   });
-    // });
   });
 });

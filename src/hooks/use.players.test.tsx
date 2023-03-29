@@ -31,7 +31,7 @@ const mockStore = configureStore({
         {
           id: '',
           userName: 'test',
-          password: 'test',
+          password: '2',
           players: [],
           email: 'test',
           results: 'test',
@@ -122,7 +122,7 @@ describe('Given our players custom hook', () => {
       });
     });
 
-    describe('When we use the load players function', () => {
+    describe('When i use the load players function', () => {
       test('Then the function should be called', async () => {
         const elements = await screen.findAllByRole('button');
         await userEvent.click(elements[0]);
@@ -130,14 +130,14 @@ describe('Given our players custom hook', () => {
       });
     });
 
-    describe('When we use the loadOnePlayer function', () => {
+    describe('When i use the loadOnePlayer function', () => {
       test('Then the function should be called', async () => {
         const elements = await screen.findAllByRole('button');
         await userEvent.click(elements[1]);
         expect(repoMock.loadOnePlayer).toHaveBeenCalled();
       });
     });
-    describe('When we use the updatePlayer function', () => {
+    describe('When i use the updatePlayer function', () => {
       test('Then the function should be called', async () => {
         const elements = await screen.findAllByRole('button');
         await userEvent.click(elements[3]);
@@ -145,7 +145,7 @@ describe('Given our players custom hook', () => {
       });
     });
 
-    describe('When we use the create new pet function', () => {
+    describe('When i use the create new pet function', () => {
       test('Then the function should be called', async () => {
         const elements = await screen.findAllByRole('button');
         (repoMock.createPlayer as jest.Mock).mockReturnValue(
@@ -155,7 +155,7 @@ describe('Given our players custom hook', () => {
         expect(repoMock.createPlayer).toHaveBeenCalled();
       });
     });
-    describe('When we use the delete player function', () => {
+    describe('When i use the delete player function', () => {
       test('Then the function should be called', async () => {
         const elements = await screen.findAllByRole('button');
         await fireEvent.click(elements[4]);
@@ -213,7 +213,7 @@ describe('Given our players custom hook', () => {
       );
     });
 
-    describe('When we render it', () => {
+    describe('When i render it', () => {
       test('Then it has to be a button', async () => {
         const elements = await screen.findAllByRole('button');
         expect(elements[0]).toBeInTheDocument();
