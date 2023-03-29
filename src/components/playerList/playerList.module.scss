@@ -1,0 +1,21 @@
+.players {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.allPlayers {
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template: auto;
+  row-gap: 2rem;
+  column-gap: 2rem;
+}
+
+.crear {
+  background-color: blue;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+  border-radius: 1rem;
+  padding: 0.6rem;
+}

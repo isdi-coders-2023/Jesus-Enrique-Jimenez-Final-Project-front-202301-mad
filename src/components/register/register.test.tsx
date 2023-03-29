@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { useUsers } from '../../hooks/use.users';
 import { store } from '../../store/store';
 import { MemoryRouter as Router } from 'react-router-dom';
-
 import Register from './register';
 
 jest.mock('../../hooks/use.users');

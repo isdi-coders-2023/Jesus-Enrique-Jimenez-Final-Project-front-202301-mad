@@ -1,11 +1,13 @@
+import styles from './about.module.scss';
+
 export default function AboutPage(): JSX.Element {
   return (
-    <section className="container__about">
+    <section className={styles.about}>
       <div className="main__title">
         <h2>About us</h2>
       </div>
 
-      <div>
+      <div className={'about'}>
         <h3 className="about__title">NUESTRO PALMARES</h3>
         <p className="about__titletext">
           * TROFEO FIFA AL MEJOR CLUB DEL SIGLO XX * 14 COPAS DE EUROPA * 5

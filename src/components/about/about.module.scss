@@ -1,0 +1,16 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 1rem;
+  gap: 3rem;
+}
+
+h3 {
+  font-size: 1rem;
+  color: black;
+}
+
+p {
+  font-size: 0.8rem;
+  color: rgba(71, 69, 69, 1);
+}

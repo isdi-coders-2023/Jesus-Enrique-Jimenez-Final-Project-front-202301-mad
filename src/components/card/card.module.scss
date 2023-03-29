@@ -1,0 +1,30 @@
+.card {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(66, 66, 221);
+  border-radius: 2rem;
+  padding: 0.5rem;
+  border: 0.2rem solid black;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  width: 10rem;
+  height: 10rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+
+  &__element {
+    width: 85%;
+    height: 90%;
+    object-fit: contain;
+  }
+  &__name {
+    color: white;
+  }
+  &__image {
+    height: 100%;
+    width: 100%;
+  }
+}

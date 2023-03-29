@@ -1,0 +1,42 @@
+.errorPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 8rem 1rem 4rem;
+
+  .errorPageTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .errorPageTitleCode {
+      font-size: 3rem;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-weight: bold;
+    }
+
+    .errorPageTitleMessage {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-weight: bold;
+      font-size: 2.5rem;
+    }
+  }
+
+  img {
+    width: 200px;
+  }
+
+  p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+
+    span {
+      font-weight: bold;
+      padding: 0rem 0rem 0.2rem;
+      border-bottom: 3px solid blue;
+    }
+  }
+}

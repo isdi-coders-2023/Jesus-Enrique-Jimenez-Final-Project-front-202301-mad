@@ -1,22 +1,22 @@
-type HeaderProps = { children: JSX.Element };
+import { Menu } from '../menu/menu';
+import styles from './header.module.scss';
 
-export function Header({ children }: HeaderProps) {
+export default function Header() {
   return (
-    <header className="header-container">
-      <div className="header-logo-title">
-        <a href="Access">
-          <img className="header-logo" src="./logo-header.png" alt="" />
-          <img
-            className="header-parche"
-            src="./parche_champions_14.png"
-            alt=""
-          />
-        </a>
-      </div>
-      <div className="header-menu-logo">
-        {children}
-        <img src="./menu-hamburguesa.png" alt=""></img>
-      </div>
+    <header className={styles.header}>
+      <a href="home">
+        <img
+          src="./logo-header.png"
+          alt="logo-title"
+          className={styles.header__logo}
+        ></img>
+      </a>
+      <img
+        src="./parche_champions_14.png"
+        alt="logo-title2"
+        className={styles.header__logo2}
+      ></img>
+      <Menu MenuOptions={[]}></Menu>
     </header>
   );
 }
