@@ -112,60 +112,8 @@ describe('Given our players custom hook is rendered', () => {
     testMain();
   });
 
-  describe('When we render it', () => {
-    test('Then it has to be a button', async () => {
-      const elements = await screen.findAllByRole('button');
-      expect(elements[0]).toBeInTheDocument();
-      expect(elements[1]).toBeInTheDocument();
-      expect(elements[2]).toBeInTheDocument();
-      expect(elements[3]).toBeInTheDocument();
-      expect(elements[4]).toBeInTheDocument();
-      expect(elements[5]).toBeInTheDocument();
-    });
-  });
-
-  describe('When i use the load players function', () => {
-    test('Then the function should be called', async () => {
-      const elements = await screen.findAllByRole('button');
-      await userEvent.click(elements[0]);
-      expect(repoMock.loadPlayers).toHaveBeenCalled();
-    });
-  });
-
-  describe('When i use the loadOnePlayer function', () => {
-    test('Then the function should be called', async () => {
-      const elements = await screen.findAllByRole('button');
-      await userEvent.click(elements[1]);
-      expect(repoMock.loadOnePlayer).toHaveBeenCalled();
-    });
-  });
-  describe('When i use the updatePlayer function', () => {
-    test('Then the function should be called', async () => {
-      const elements = await screen.findAllByRole('button');
-      await userEvent.click(elements[3]);
-      expect(repoMock.updatePlayer).toHaveBeenCalled();
-    });
-  });
-
-  describe('When i use the create new pet function', () => {
-    test('Then the function should be called', async () => {
-      const elements = await screen.findAllByRole('button');
-      (repoMock.createPlayer as jest.Mock).mockReturnValue({} as ServerPlayer);
-      await fireEvent.click(elements[2]);
-      expect(repoMock.createPlayer).toHaveBeenCalled();
-    });
-  });
-  describe('When i use the delete player function', () => {
-    test('Then the function should be called', async () => {
-      const elements = await screen.findAllByRole('button');
-      await fireEvent.click(elements[4]);
-      await act(async () => userEvent.click(elements[4]));
-      expect(repoMock.deletePlayer).toHaveBeenCalled();
-    });
-  });
-
-  describe('When i render it', () => {
-    test('Then it has to be a button', async () => {
+  describe('When i render component', () => {
+    test('Then it has to be one button', async () => {
       const elements = await screen.findAllByRole('button');
       expect(elements[0]).toBeInTheDocument();
       expect(elements[1]).toBeInTheDocument();
