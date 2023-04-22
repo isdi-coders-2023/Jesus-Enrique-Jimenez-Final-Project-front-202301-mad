@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(66, 66, 221);
+  background-color: rgb(89, 89, 204);
   border-radius: 2rem;
   padding: 0.5rem;
   border: 0.2rem solid black;
@@ -16,12 +16,12 @@
   font-weight: 500;
 
   &__element {
-    width: 85%;
+    width: 90%;
     height: 90%;
     object-fit: contain;
   }
   &__name {
-    color: white;
+    color: rgb(19, 18, 18);
   }
   &__image {
     height: 100%;
