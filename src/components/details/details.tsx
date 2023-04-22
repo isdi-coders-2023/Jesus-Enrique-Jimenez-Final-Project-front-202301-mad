@@ -22,16 +22,22 @@ export default function Details() {
   return (
     <>
       <div className={styles.details}>
-        <Link to={`/home`} relative="path">
-          <button className={styles.eliminar} onClick={handleDelete}>
-            {' '}
-            Eliminar{' '}
-          </button>
-        </Link>
-        <Link to={`/edit/${id}`} relative="path">
-          <button className={styles.editar}> Editar </button>
-        </Link>
         <h2>Detalles del jugador</h2>
+        <div className={styles.buttons}>
+          <div>
+            <Link to={`/home`} relative="path">
+              <button className={styles.eliminar} onClick={handleDelete}>
+                {' '}
+                Eliminar{' '}
+              </button>
+            </Link>
+          </div>
+          <div>
+            <Link to={`/edit/${id}`} relative="path">
+              <button className={styles.editar}> Editar </button>
+            </Link>
+          </div>
+        </div>
         <span>
           <span>
             <div>
