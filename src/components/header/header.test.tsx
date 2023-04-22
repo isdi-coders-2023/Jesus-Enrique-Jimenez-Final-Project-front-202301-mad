@@ -1,21 +1,23 @@
 import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
 import { MemoryRouter as Router } from 'react-router-dom';
-import { Menu } from '../menu/menu';
-import Header from './header';
+import { store } from '../../store/store';
+import { Header } from './header';
 
-jest.mock('../menu/menu');
-
-describe('Given the Header component', () => {
-  describe('When the component is rendered', () => {
-    test('Then the logo image should be in the document', () => {
+describe('Given Header component', () => {
+  describe('When it is render', () => {
+    test('Then it should have an image in the screen', () => {
       render(
-        <Router>
-          <Header></Header>
-        </Router>
+        <Provider store={store}>
+          <Router>
+            <Header>
+              <></>
+            </Header>
+          </Router>
+        </Provider>
       );
-      const element = screen.getByRole('banner');
-      expect(element).toBeInTheDocument();
-      expect(Menu).toHaveBeenCalled();
+      const logo1 = screen.getByAltText('logo-title');
+      expect(logo1).toBeInTheDocument();
     });
   });
 });

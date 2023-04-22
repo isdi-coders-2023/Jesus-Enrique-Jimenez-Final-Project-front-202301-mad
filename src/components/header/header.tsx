@@ -1,7 +1,7 @@
-import { Menu } from '../menu/menu';
 import styles from './header.module.scss';
 
-export default function Header() {
+type HeaderProps = { children: JSX.Element };
+export function Header({ children }: HeaderProps) {
   return (
     <header className={styles.header}>
       <a href="home">
@@ -16,7 +16,7 @@ export default function Header() {
         alt="logo-title2"
         className={styles.header__logo2}
       ></img>
-      <Menu MenuOptions={[]}></Menu>
+      <div>{children}</div>
     </header>
   );
 }
