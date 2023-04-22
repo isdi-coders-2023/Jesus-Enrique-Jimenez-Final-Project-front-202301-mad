@@ -66,7 +66,7 @@ export default function Form() {
           id="name"
           defaultValue={playerItem?.name}
           required
-          placeholder="Name"
+          placeholder="Nombre"
         />
         <input type="file" name="image" id="image" placeholder="Image" />
         <input
@@ -75,7 +75,7 @@ export default function Form() {
           id="age"
           defaultValue={playerItem?.age}
           required
-          placeholder="Age"
+          placeholder="Edad"
         />
         <input
           type="text"
@@ -83,7 +83,7 @@ export default function Form() {
           id="position"
           defaultValue={playerItem?.position}
           required
-          placeholder="Position"
+          placeholder="Posicion"
         />
         <input
           type="text"
@@ -91,7 +91,7 @@ export default function Form() {
           id="nationality"
           defaultValue={playerItem?.nationality}
           required
-          placeholder="Nationality"
+          placeholder="Nacionalidad"
         />
         <input
           type="text"
@@ -99,7 +99,7 @@ export default function Form() {
           id="preferredFoot"
           defaultValue={playerItem?.preferredFoot}
           required
-          placeholder="PreferredFoot"
+          placeholder="Pie Preferido"
         />
         <div className={styles.buttons}>
           <div>
