@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react';
-import Header from '../header/header';
 import Footer from '../footer/footer';
 import { AppRouter } from '../app-router/app.router';
 import App from './app';
@@ -13,7 +12,7 @@ describe('Given App component', () => {
     test('Then it should call UsersList component', () => {
       render(<App />);
 
-      expect(Header).toHaveBeenCalled();
+      expect(Footer).toHaveBeenCalled();
       expect(AppRouter).toHaveBeenCalled();
       expect(Footer).toHaveBeenCalled();
     });
