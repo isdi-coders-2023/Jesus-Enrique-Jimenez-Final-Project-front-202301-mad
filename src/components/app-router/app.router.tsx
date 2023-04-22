@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { MenuOption } from '../app/app';
+import { MenuOption, menuOptions } from '../menu/menu';
 
 const Access = lazy(() => import('../access/access'));
 const Home = lazy(() => import('../home/home'));
@@ -10,11 +10,12 @@ const Details = lazy(() => import('../details/details'));
 const CreatePlayer = lazy(() => import('../create/create'));
 const EditPlayer = lazy(() => import('../edit-player/edit'));
 
-type AppRouterProps = {
-  menuOptions: MenuOption[];
-};
+export const MenuOptions: MenuOption[] = [
+  { label: 'Access', path: '/access' },
+  { label: 'About', path: '/about' },
+];
 
-export function AppRouter({ menuOptions }: AppRouterProps) {
+export function AppRouter() {
   return (
     <Suspense>
       <Routes>

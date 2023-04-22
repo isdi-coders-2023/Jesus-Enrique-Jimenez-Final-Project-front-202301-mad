@@ -25,7 +25,7 @@ export class UsersApiRepo {
       Swal.fire({
         icon: 'success',
         timer: 2000,
-        confirmButtonColor: 'blue',
+        confirmButtonColor: 'rgb(34, 6, 146)',
         title: ` User ${resp.statusText}`,
       });
 
@@ -37,14 +37,6 @@ export class UsersApiRepo {
       });
       throw new Error(`Error http: ${resp.status} ${resp.statusText}`);
     }
-
-    // if (!resp.ok) {
-    //   Swal.fire({
-    //     icon: 'error',
-    //     text: 'Algo no has hecho bien',
-    //   });
-    //   throw new Error('Error http: ' + resp.status + resp.statusText);
-    // }
 
     const userData = (await resp.json()) as ServerUser;
 

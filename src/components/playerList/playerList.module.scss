@@ -1,21 +1,55 @@
-.players {
+.container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
 }
+.filter {
+  padding: 1rem 1rem;
+}
+
 .allPlayers {
-  gap: 1rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template: auto;
-  row-gap: 2rem;
-  column-gap: 2rem;
+  row-gap: 1.5rem;
+  column-gap: 1.5rem;
+  padding: 1rem 1rem;
+}
+.next,
+.prev {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+.buttons {
+  gap: 8rem;
+  padding: 1.5rem;
+  flex-direction: row;
+  display: flex;
 }
 
 .crear {
-  background-color: blue;
+  background-color: rgb(34, 6, 146);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: white;
   border-radius: 1rem;
   padding: 0.6rem;
+}
+
+@media screen and (min-width: 710px) {
+  .allPlayers {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template: auto;
+  }
+  .buttons {
+    gap: 14rem;
+  }
+}
+
+@media screen and (min-width: 1110px) {
+  .allPlayers {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template: auto;
+  }
+  .buttons {
+    gap: 20rem;
+  }
 }

@@ -1,56 +1,42 @@
-import { render, screen } from '@testing-library/react';
-import { MenuOption } from '../app/app';
 import { MemoryRouter as Router } from 'react-router-dom';
-import { Menu } from './menu';
+import { render, screen } from '@testing-library/react';
+import { Menu, MenuOption } from './menu';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import { userReducer } from '../../reducer/users.slice';
 import { useUsers } from '../../hooks/use.users';
+
 jest.mock('../../hooks/use.users');
-
-describe('Given the menu component', () => {
-  describe('when we render the component while being logged', () => {
-    test('then it should render the menu component in the header component, with menuLoggedOptions', () => {
-      (useUsers as jest.Mock).mockReturnValue({
-        logoutUser: jest.fn(),
-        usersState: {
-          userLogged: {
-            email: 'test',
-          },
+const mockStore = configureStore({
+  reducer: { users: userReducer },
+});
+describe('Given Menu component', () => {
+  beforeEach(() => {
+    (useUsers as jest.Mock).mockReturnValue({
+      logoutUser: jest.fn(),
+      users: {
+        userLogged: {
+          email: 'test',
         },
-      });
-      const mockOptions: MenuOption[] = [
-        {
-          label: 'test',
-          path: '/test',
-        },
-      ];
-      render(
-        <Router>
-          <Menu MenuOptions={mockOptions}></Menu>
-        </Router>
-      );
-
-      const element = screen.getByRole('list');
-      expect(element).toBeInTheDocument();
+      },
     });
-    test('then it should render the menu component in the header component, with menuOptions', () => {
-      (useUsers as jest.Mock).mockReturnValue({
-        logoutUser: jest.fn(),
-        usersState: {
-          userLogged: {},
-        },
-      });
+  });
+  describe('When it is rendered', () => {
+    test('Then menu should be in the screen', () => {
       const mockOptions: MenuOption[] = [
         {
-          label: 'test',
-          path: '/test',
+          label: 'Home',
+          path: '/home',
         },
       ];
       render(
-        <Router>
-          <Menu MenuOptions={mockOptions}></Menu>
-        </Router>
+        <Provider store={mockStore}>
+          <Router>
+            <Menu options={mockOptions}></Menu>
+          </Router>
+        </Provider>
       );
-
-      const element = screen.getByRole('list');
+      const element = screen.getByText(mockOptions[0].label);
       expect(element).toBeInTheDocument();
     });
   });

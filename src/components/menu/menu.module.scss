@@ -1,22 +1,56 @@
-.menu {
-  display: flex;
-  font-size: 1rem;
-  background: inherit;
-  box-shadow: blue;
-}
-
-.burgerImg {
-  width: 3rem;
-  height: 3rem;
-}
-.yo {
+.menupaths {
   display: none;
+  font-size: 1rem;
+  background-color: white;
+  color: rgb(34, 6, 146);
+  position: relative;
+  z-index: 1;
 }
 
-.menu:hover {
-  .menu {
-    display: block;
-    color: blue;
+.menuburguer:hover {
+  cursor: pointer;
+  background-color: white;
+
+  .menupaths {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-content: center;
+    justify-content: center;
+    color: rgb(34, 6, 146);
     font-weight: bold;
+    list-style: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-top: 1.5rem;
+    margin-right: 3rem;
+    margin-left: 1rem;
+    margin-bottom: 2rem;
   }
+}
+a:link {
+  text-decoration: none;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif,
+    sans-serif;
+}
+
+.burguerImg {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-top: 1.3rem;
+  margin-right: 1.1rem;
+}
+
+.menucontainer {
+  display: flex;
+  justify-content: flex-end;
+  text-decoration: none;
+}
+
+.container__flex {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 1rem;
+  color: black;
 }
