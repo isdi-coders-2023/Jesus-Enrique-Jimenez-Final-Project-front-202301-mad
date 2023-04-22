@@ -1,35 +1,43 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import { MenuOption, menuOptions } from '../app/app';
+import { Link } from 'react-router-dom';
 import styles from './menu.module.scss';
 
-type MenuProps = {
-  MenuOptions: MenuOption[];
+export type MenuOption = {
+  label: string;
+  path: string;
 };
 
-export function Menu({ MenuOptions }: MenuProps) {
+export const menuOptions: MenuOption[] = [
+  { label: 'Home', path: '/home' },
+  { label: 'About', path: '/about' },
+];
+
+type MenuProps = {
+  options: MenuOption[];
+};
+
+export const Menu = ({ options }: MenuProps) => {
   return (
     <>
-      <nav>
-        <div className={styles.menu}>
-          <a href="#" className={styles.burger}>
-            <img
-              className={styles.burgerImg}
-              src="./menu-hamburguesa.png"
-              alt="burger menu"
-            ></img>
-          </a>
-        </div>
-        <div className={styles.yo}>
-          <ul className="menu">
-            {menuOptions.map((option) => (
-              <li key={option.label}>
-                <a href={option.path}>{option.label}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
-      ;
+      <div>
+        <nav className={styles.menuburguer}>
+          <img
+            className={styles.burguerImg}
+            src="./menu-hamburguesa.png"
+            alt="burger menu"
+          ></img>
+          <div className={styles.container__flex}>
+            <ul className={styles.menupaths}>
+              {options.map((item) => (
+                <li key={item.label}>
+                  <Link to={item.path} className={styles.menu_item}>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </nav>
+      </div>
     </>
   );
-}
+};
